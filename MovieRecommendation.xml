@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File Name: MovieRecommendation.xml
+     Authors: Aditi Darade (Group #6)
+     Assignment: EECS_448 Project #3 
+     Date Last Modified: 04/03/2022 -->
+<User userName="Public">
+<MovieRecommendation>
+  <Recommended>
+    <Movie genre="Animation">
+      <title lang="English">Turning Red</title>
+      <ratings>PG</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Animation">
+      <title lang="English">Encanto</title>
+      <ratings>PG</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Animation">
+      <title lang="English">Sonic the Hedgehog 2</title>
+      <ratings>PG</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Animation">
+      <title lang="English">The Bad Guys</title>
+      <ratings>PG</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Animation">
+      <title lang="English">Sing 2</title>
+      <ratings>PG</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Animation">
+      <title lang="English">Spider-Man: Into the Spider-Verse</title>
+      <ratings>PG</ratings>
+      <year>2018</year>
+    </Movie>
+  </Recommended>
+  
+  <WatchedMovies>
+    <Movie genre="Action">
+      <title lang="English">The Batman</title>
+      <ratings>PG-13</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Action">
+      <title lang="English"> Spider-Man: No Way Home</title>
+      <ratings>PG-13</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Action">
+      <title lang="English">The Lost City</title>
+      <ratings>PG-13</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">Don't Look Up</title>
+      <ratings>R</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Fantasy">
+      <title lang="English"> Ghostbusters: Afterlife</title>
+      <ratings>PG-13</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">The Matrix Resurrections</title>
+      <ratings>PG</ratings>
+      <year>2018</year>
+    </Movie>
+  </WatchedMovies>
+
+  <NeedToWatched>
+    <Movie genre="Adventure">
+      <title lang="English">Avengers: Endgame</title>
+      <ratings>PG-13</ratings>
+      <year>2013</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">Spider-Man: Homecoming</title>
+      <ratings>PG-13</ratings>
+      <year>2017</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">Interstellar</title>
+      <ratings>PG-13</ratings>
+      <year>2014</year>
+    </Movie>
+    <Movie genre="Adventure">
+      <title lang="English"> Spider-Man</title>
+      <ratings>PG</ratings>
+      <year>2002</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">Mad Max: Fury Road</title>
+      <ratings>R</ratings>
+      <year>2015</year>
+    </Movie>
+    <Movie genre="Action">
+      <title lang="English">Tenet</title>
+      <ratings>PG-13</ratings>
+      <year>2020</year>
+    </Movie>
+  </NeedToWatched>
+
+  <LikedMovies>
+    <Movie genre="Action">
+      <title lang="English">The Batman</title>
+      <ratings>PG-13</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Action">
+      <title lang="English"> Spider-Man: No Way Home</title>
+      <ratings>PG-13</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">The Matrix Resurrections</title>
+      <ratings>PG</ratings>
+      <year>2018</year>
+    </Movie>
+  </LikedMovies>
+
+  <DislikedMovies>
+     <Movie genre="Action">
+      <title lang="English">The Lost City</title>
+      <ratings>PG-13</ratings>
+      <year>2022</year>
+    </Movie>
+    <Movie genre="Sci-Fi">
+      <title lang="English">Don't Look Up</title>
+      <ratings>R</ratings>
+      <year>2021</year>
+    </Movie>
+    <Movie genre="Fantasy">
+      <title lang="English"> Ghostbusters: Afterlife</title>
+      <ratings>PG-13</ratings>
+      <year>2021</year>
+    </Movie>
+  </DislikedMovies>
+</MovieRecommendation>
+<UserInfo userName="Public">
+  <FullName>Public</FullName>
+  <UserName>Public</UserName>
+  <Age>21</Age>
+  <EmailAddress>Public@Public.com</EmailAddress>
+  <FavouriteGenre>Action</FavouriteGenre>
+  <FavouriteGenre>Comedy</FavouriteGenre>
+  <FavouriteGenre>Animation</FavouriteGenre>
+  <FavouriteGenre>Drama</FavouriteGenre>
+  <FavouriteGenre>Sci-Fi</FavouriteGenre>
+</UserInfo>
+</User>
