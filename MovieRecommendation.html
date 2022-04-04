@@ -147,6 +147,7 @@
         //C:\Program Files (x86)\Google\Chrome\Application>.\chrome.exe --allow-file-access-from-files
         //python -m http.server
         //http://localhost:8000/MovieRecommendation.html
+        //get movies info from .xml file -->
         function populateMovieListFromXML(xml, tabName) {
             var xmlDoc = xml.responseXML;
             var txt = "<tr><td><b>Title</b></td><td><b>Ratings</b></td><td><b>Year</b></td><td><b>Genre</b></td><td><b>Language</b></td>\
@@ -197,6 +198,7 @@
             }
         }
 
+        // open the tab when user click on it 
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -205,11 +207,12 @@
             }
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].className = tablinks[i].className.replace("active", "");
             }
             document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            evt.currentTarget.className += "active";
             //-----------------------------------------------------------
+            //action only when a tab (except for home) is clicked
             if (tabName != "Home") {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
