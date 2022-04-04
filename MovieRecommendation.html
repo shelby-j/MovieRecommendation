@@ -11,15 +11,14 @@
     <style>
         body {
             font-family: Arial;
-            background-color: #363533;
+            background-color: #bacbe8;
         }
     </style>
 </head>
 
 <body>
-
-    <h2 style="text-align: center; color: white">MOVIE RECOMMENDATION</h2>
-    <p style="color: white">Click on the tabbed menu:</p>
+    <h2 style="text-align: center">MOVIE RECOMMENDATION</h2>
+    <p>Click on the tabbed menu:</p>
 
     <div class="tab">
 
@@ -73,15 +72,15 @@
                 </tr>
             </tbody>
             <tr>
-                <td><button onclick="addEntryToXML('NeedToWatched')">Add</button></td>
+                <td><button onclick="addEntryToXML( 'NeedToWatched')">Add</button></td>
             </tr>
         </table>
     </div>
     <!–– end of NeedToWatched tab ––>
 
     <div id="LikedMovies" class="tabcontent">
-        <table style="display:true" border="1">
-            <tbody id="LikedMoviesTable">
+        <table style="display:true" border="1 ">
+            <tbody id="LikedMoviesTable ">
                 <tr>
                     <td><b>Title</b></td>
                     <td><b>Ratings</b></td>
@@ -93,15 +92,16 @@
                 </tr>
             </tbody>
             <tr>
-                <td><button onclick="addEntryToXML('LikedMovies')">Add</button></td>
+                <td><button onclick="addEntryToXML( 'LikedMovies')">Add</button>
+                </td>
             </tr>
         </table>
     </div>
     <!–– end of LikedMovies tab ––>
 
     <div id="DislikedMovies" class="tabcontent">
-        <table style="display:true" border="1">
-            <tbody id="DislikedMoviesTable">
+        <table style="display:true" border="1 ">
+            <tbody id="DislikedMoviesTable ">
                 <tr>
                     <td><b>Title</b></td>
                     <td><b>Ratings</b></td>
@@ -113,15 +113,17 @@
                 </tr>
             </tbody>
             <tr>
-                <td><button onclick="addEntryToXML('DislikedMovies')">Add</button></td>
+                <td>
+                    <button onclick="addEntryToXML( 'DislikedMovies') ">Add</button>
+                </td>
             </tr>
         </table>
     </div>
     <!–– end of DislikedMovies tab ––>
 
     <div id="Recommended" class="tabcontent">
-        <table style="display:true" border="1">
-            <tbody id="RecommendedTable">
+        <table style="display:true" border="1 ">
+            <tbody id="RecommendedTable ">
                 <tr>
                     <td><b>Title</b></td>
                     <td><b>Ratings</b></td>

@@ -1,3 +1,4 @@
+/* css for login area */
 .login-area {
     background-color: #ffffff;
     color: black;
@@ -36,6 +37,7 @@
     text-align: right;
 }
 
+/* css for sign-up area */
 .signup-area {
     color: hsl(210 11% 15%);
     flex-basis: 66.6667%;
@@ -71,7 +73,6 @@
 
 
 /* Main page*/
-
 
 /* Style the tab */
 
