@@ -29,10 +29,12 @@
 
     <body>
         <h2 style="text-align: center">MOVIE RECOMMENDATION</h2>
+        <a href="">
+            <button type="submit" onclick="signout()">Sign out</button>
+        </a>
         <p>Click on the tabbed menu:</p>
 
         <div class="tab">
-
             <button class="tablinks" onclick="openTab(event, 'Home')"><i
                     class="fa fa-fw fa-home"></i>Home</button>
             <button class="tablinks" onclick="openTab(event, 'WatchedMovies')">Watched</button>
@@ -44,10 +46,8 @@
                 movies</button>
             <button class="tablinks" onclick="openTab(event, 'Recommended')">Recommendation</button>
             <div class="search-container">
-                <form>
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+                <input type="text" placeholder="Search.." id="search">
+                <button type="button" onclick="search_movie()"><i class="fa fa-search"></i></button>
             </div>
         </div>
 
@@ -162,25 +162,49 @@
 
         <section class="home-hero">
             <h1>Top 10 movies of all time</h1>
-            <div class="top-ten-movie-list">
-                <!-- <div class="card">
-                <a href="movie-details.html">
-                <img
-                src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX128_CR0,3,128,176_AL_.jpg"
-                alt="image"
-                />
-                <div className="card-footer">
-                <div className="card-info">
-                    <h4>The Shawshank Redemption (1994)</h4>
-                    <p>1994</p>
-                </div>
-                </div>
-                </a>
-                </div> -->
-            </div>
+            <div class="top-ten-movie-list"></div>
+    
         </section>
         <script src="./js/app.js"></script>
-        
+        <!-- <script type="module" src="./js/signup.js"></script> -->
     </body>
+    <!-- <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyAyM9EXN8H909VDemO8Ymmm38dBrd_ztoA",
+        authDomain: "movie-recommendation-4fca4.firebaseapp.com",
+        databaseURL: "https://movie-recommendation-4fca4-default-rtdb.firebaseio.com",
+        projectId: "movie-recommendation-4fca4",
+        storageBucket: "movie-recommendation-4fca4.appspot.com",
+        messagingSenderId: "139216035401",
+        appId: "1:139216035401:web:4d0edd0967715406082998",
+        measurementId: "G-CE6CDQQQCJ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+        const auth = getAuth();
+        const db = getFirestore(app);
+        function signout() {
+            console.log("OK");
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                window.location.href = "login.html";
+              }).catch((error) => {
+                // An error happened.
+              });
+        };
+    </script>  -->
 
 </html>

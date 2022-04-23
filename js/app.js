@@ -1,3 +1,82 @@
+// //top movie list
+const TopTenMovieListCon = document.querySelector(".top-ten-movie-list");
+const apiKey = "k_ejtw89k9";
+//constantly change the key to check
+const fetchMovies = () => {
+  fetch("https://imdb-api.com/en/API/Top250Movies/k_ejtw89k9")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+        const top = data.items.slice(0, 10);
+        console.log(top);
+        const topTenMovieList = top.map((movie) => {
+        const { id, title, image, year, rank, imDbRating } = movie;
+
+        return `<div class="card">
+          <a href="http://imdb.com/title/${movie.id}/" target = "blank">
+            <img
+              src=${image}
+              alt="image"
+            />
+            <div className="card-footer">
+              <div className="card-info">
+                <h4>${title}</h4>
+                <p>${year}</p>
+              </div>
+            </div>
+          </a>
+        </div>`;
+        })
+        .join("");
+      TopTenMovieListCon.innerHTML = topTenMovieList;
+    });
+};
+fetchMovies();
+
+//search function
+function search_movie() {
+  search_res = document.getElementById('search');
+  movie_key= search_res.value;
+  // console.log(movie_key);
+  search_element = 'http://www.omdbapi.com/?apikey=7a24b6a1&s=' + movie_key;
+  // console.log(search_element);
+  fetch(search_element)
+      .then((success) => { 
+        return success.json();
+      })
+      .then((data) => { 
+          // console.log(data);
+          // console.log(data.Search)
+          // top = data.Search;
+          const top = data.Search.slice();
+          console.log(top);
+
+          const searchList = top.map((movie) => {
+              const { image, title, type, year, id } = movie;
+              console.log(movie);
+              return `<div class="card">
+                <a href="http://imdb.com/title/${movie.id}/" target = "blank">
+                  <img
+                    src=${image}
+                    alt="image"
+                  />
+                  <div className="card-footer">
+                    <div className="card-info">
+                      <h4>${title}</h4>
+                      <p>${year}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>`;
+              })
+              .join("");
+            TopTenMovieListCon.innerHTML = searchList;
+          })
+      .catch((error)=>{ console.log(error)});
+};
+
 var counter = 1;
 //C:\Program Files (x86)\Google\Chrome\Application>.\chrome.exe --allow-file-access-from-files
 //python -m http.server
@@ -77,40 +156,3 @@ function openTab(evt, tabName) {
     //populateMovieListFromXML(tabName);
     //-----------------------------------------------------------
 
-    //top movie list
-const TopTenMovieListCon = document.querySelector(".top-ten-movie-list");
-const apiKey = "k_gvg3829w";
-
-const fetchMovies = () => {
-  fetch("https://imdb-api.com/en/API/Top250Movies/k_gvg3829w")
-    .then((response) => {
-      
-      return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-        const top = data.items.slice(0, 10);
-        console.log(top);
-        const topTenMovieList = top.map((movie) => {
-        const { id, title, image, year, rank, imDbRating } = movie;
-
-        return `<div class="card">
-          <a href="http://imdb.com/title/${movie.id}/" target = "blank">
-            <img
-              src=${image}
-              alt="image"
-            />
-            <div className="card-footer">
-              <div className="card-info">
-                <h4>${title}</h4>
-                <p>${year}</p>
-              </div>
-            </div>
-          </a>
-        </div>`;
-        })
-        .join("");
-      TopTenMovieListCon.innerHTML = topTenMovieList;
-    });
-};
-fetchMovies();
