@@ -3,7 +3,7 @@ const TopTenMovieListCon = document.querySelector(".top-ten-movie-list");
 const apiKey = "k_ejtw89k9";
 //constantly change the key to check
 const fetchMovies = () => {
-  fetch("https://imdb-api.com/en/API/Top250Movies/k_ejtw89k9")
+  fetch("https://imdb-api.com/en/API/Top250Movies/k_aaaaaaaa")
     .then((response) => {
       return response.json();
     })
@@ -31,6 +31,7 @@ const fetchMovies = () => {
         })
         .join("");
       TopTenMovieListCon.innerHTML = topTenMovieList;
+      console.log(topTenMovieList)
     });
 };
 fetchMovies();
@@ -48,31 +49,31 @@ function search_movie() {
       })
       .then((data) => { 
           // console.log(data);
-          // console.log(data.Search)
+          // console.log(data.Search[0].Title);
           // top = data.Search;
-          const top = data.Search.slice();
-          console.log(top);
-
+          const top = data.Search;
+          // console.log(top);
           const searchList = top.map((movie) => {
-              const { image, title, type, year, id } = movie;
-              console.log(movie);
+              const { Poster, Title, Year, imdbID } = movie;
+              // console.log(Poster);
               return `<div class="card">
-                <a href="http://imdb.com/title/${movie.id}/" target = "blank">
-                  <img
-                    src=${image}
-                    alt="image"
-                  />
-                  <div className="card-footer">
-                    <div className="card-info">
-                      <h4>${title}</h4>
-                      <p>${year}</p>
-                    </div>
-                  </div>
+                <a href="http://imdb.com/title/${movie.imdbID}/" target = "blank">
+                  // <img
+                  //   src=${Poster}
+                  //   alt="image"
+                  // />
+                  // <div className="card-footer">
+                  //   <div className="card-info">
+                  //     <h4>${Title}</h4>
+                  //     <p>${Year}</p>
+                  //   </div>
+                  // </div>
                 </a>
               </div>`;
-              })
-              .join("");
+              });
+              console.log(searchList);
             TopTenMovieListCon.innerHTML = searchList;
+            
           })
       .catch((error)=>{ console.log(error)});
 };
