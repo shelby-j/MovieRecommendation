@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,7 +36,6 @@ signUp.addEventListener('click', (e)=> {
     var dob = document.getElementById('DOB').value;
     var checkedGenre = []; 
     var genre = document.getElementsByClassName('genre');
-    var link = document.getElementById('link');
     for(var i=0; genre[i]; ++i){
         if(genre[i].checked){
             checkedGenre.push(genre[i].name);
@@ -55,7 +54,6 @@ signUp.addEventListener('click', (e)=> {
             genre: checkedGenre,
         })
         window.location.href = "MovieRecommendation.html";
-        // alert('user created');
     // ...
     })
     .catch((error) => {
@@ -64,4 +62,26 @@ signUp.addEventListener('click', (e)=> {
     alert(error);
     // ..
     });
+})
+
+
+let logIn = document.getElementById('logIn');
+// console.log(logIn);
+logIn.addEventListener('click', (e) => {
+    e.preventDefault();
+    var email = document.getElementById('email').value;
+    console.log(email);
+    var password = document.getElementById('password').value;
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    window.location.href = "MovieRecommendation.html";
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+  });
 })

@@ -22,7 +22,7 @@
     padding: 10px;
 }
 
-.login-area input[type="submit"] {
+#logIn {
     align-items: flex-start;
     background-color: #fa8816;
     border-color: #fa8816;
