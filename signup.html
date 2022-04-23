@@ -13,6 +13,7 @@
             font-size: 14px;
         }
     </style>
+    
 </head>
 
 <body>
@@ -22,81 +23,84 @@
             Welcome to your customized film documentation and rating app.
             <br> Please enter the following information to get started.
         </h3>
-        <form class="sform" action="http://localhost:8000/MovieRecommendation.html">
+        <!-- <form class="sform" action="http://localhost:8000/MovieRecommendation.html"> -->
+        <div class="sform" >
+        <div class="userInfo">
+            <span>UserID (Note this down, this will be used as a username): </span> <br>
+            <input type="text" id="userID" placeholder="userID" required>
+        </div>
+        <div class="userInfo">
+            <span>Email: </span> <br>
+            <input type="text" id="email" placeholder="***@gmail.com" required>
+        </div>
+        <div class="userInfo">
+            <span>Date of birth (MM/DD/YYYY): </span> <br>
+            <input type="date" id="DOB" placeholder="DOB" required>
+        </div>
+        <div class="userInfo">
+            <span> Favorite Genre (Pick 3)
+                <div>
+                    <input class="genre" type="checkbox" id="action" name="action">
+                    <label for="scales">Action</label>
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="horrors" name="horrors">
+                    <label for="horrors">Horrors</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="comedy" name="comedy">
+                    <label for="comedy">Comedy</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="sci-fi" name="sci-fi">
+                    <label for="sci-fi">Sci-fi</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="thriller" name="thriller">
+                    <label for="thriller">Thriller</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="romance" name="romance">
+                    <label for="romance">Romance</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="crime" name="crime">
+                    <label for="crime">Crime</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="animation" name="animation">
+                    <label for="animation">Animation</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="musical" name="musical">
+                    <label for="musical">Musical</label> 
+                </div>
+                <div>
+                    <input class="genre" type="checkbox" id="adventure" name="adventure">
+                    <label for="adventure">Adventure</label> 
+                </div>
 
-            <div class="userInfo">
-                <span>Name (Note this down, this will be used as a username): </span> <br>
-                <!-- <input type="text" id="userID " placeholder="userID" required> -->
-                <input type="text" id="userID " placeholder="userID">
-            </div>
-            <div class="userInfo">
-                <span>Date of birth (MM/DD/YYYY): </span> <br>
-                <!-- <input type="date" id="DOB" placeholder="DOB" requied> -->
-                <input type="date" id="DOB" placeholder="DOB">
-            </div>
-            <div class="userInfo">
-                <span> Favorite Genre (Pick 3)
-                    <div>
-                        <input type="checkbox" id="action" name="action">
-                        <label for="scales">Action</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="horrors" name="horrors">
-                        <label for="horrors">Horrors</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="comedy" name="comedy">
-                        <label for="comedy">Comedy</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="sci-fi" name="sci-fi">
-                        <label for="sci-fi">Sci-fi</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="thriller" name="thriller">
-                        <label for="thriller">Thriller</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="romance" name="romance">
-                        <label for="romance">Romance</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="crime" name="crime">
-                        <label for="crime">Crime</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="animation" name="animation">
-                        <label for="animation">Animation</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="musical" name="musical">
-                        <label for="musical">Musical</label> 
-                    </div>
-                    <div>
-                        <input type="checkbox" id="adventure" name="adventure">
-                        <label for="adventure">Adventure</label> 
-                    </div>
+            </span>
+        </div>
+        <div class="userInfo">
+            <span>Password: </span>
+            <input type="text" id="password" placeholder="password" requied>
+        </div>
+        <div class="userInfo">
+            <span>Profile picture</span>
+            <input type="file" id="pic" accept="image/*" capture>
+        </div>
+        <br>
+        <a id="link" href = "">
+        <button id="signUp">Sign Up</button>
+        </a>
+        <br>
 
-                </span>
-            </div>
-            <div class="userInfo">
-                <span>Password: </span>
-                <input type="text" id="password" placeholder="password">
-                <!-- <input type="text" id="password" placeholder="password" requied> -->
-            </div>
-            <div class="userInfo">
-                <span>Profile picture</span>
-
-                <input type="file" id="pic" accept="image/*" capture>
-            </div>
-            <br>
-            <input type="submit" value="Sign Up" onclick="signup()">
-            <br>
-
-            <br>
-        </form>
+        <br>
+        </div>
 
     </div>
 </body>
 
+    <script type="module" src="./js/signup.js"></script>
 </html>
