@@ -13,6 +13,8 @@
             background-color: #363533;
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 </head>
 
@@ -20,26 +22,28 @@
     <!-- create log in form -->
     <div class="login-area">
         <h1>Movie Recommendation</h1>
-        <form action="http://localhost:8000/MovieRecommendation.html ">
+        <div>
             <h2> Log In </h2>
             <p></p>
             <div class="userInfo">
                 <span></span>
-                <!-- <input type="text " id="userID " placeholder="userID " required> -->
-                <input type="text" id="userID" placeholder="userID">
+                <input type="text" id="email" placeholder="Email" required>
             </div>
             <div class="userInfo">
                 <span></span>
-                <!-- <input type="password " id="password " placeholder="password " requied> -->
-                <input type="password" id="password" placeholder="password">
+                <input type="password" id="password" placeholder="password" requied>
             </div>
             <br>
-            <input type="submit" value="Log in" onclick="login()">
-
-        </form>
+            
+            <a href = "">
+                <button id="logIn" >Log in</button>
+            </a>
+        </div>
         <a href="signup.html" style="color: black">Create new account</a>
     </div>
 
 </body>
+
+<script type="module" src="./js/signup.js"></script>
 
 </html>

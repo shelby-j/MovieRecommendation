@@ -22,7 +22,7 @@
     padding: 10px;
 }
 
-.login-area input[type="submit"] {
+#logIn {
     align-items: flex-start;
     background-color: #fa8816;
     border-color: #fa8816;
@@ -51,7 +51,7 @@
     color: white;
 }
 
-.signup-area input[type="submit"] {
+#signUp {
     align-items: flex-start;
     background-color: #fa8816;
     border-color: #fa8816;
@@ -163,4 +163,68 @@ th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+
+/*main*/
+.home-hero {
+    padding-top: 2rem;
+    /* background-color: #011327b2; */
+}
+
+.home-hero h1 {
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: black;
+    border-bottom: solid #011327 3px;
+    display: block;
+    width: fit-content;
+    margin: 0.5rem auto;
+}
+
+.card {
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 200px;
+    height: 380px;
+    background-color: #011327;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: 1s ease-in-out;
+  }
+  
+  .card:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+  .card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card img {
+    width: 100%;
+  }
+  
+  .card h4,
+  p {
+    text-align: center;
+    color: #c6c5b9;
+    margin-top: 0.4rem;
+  }
+
+@media screen and (min-width: 500px) {
+    .top-ten-movie-list {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        /* border: solid; */
+        width: 80%;
+        margin: 0 auto;
+        max-width: 900px;
+    }
 }
