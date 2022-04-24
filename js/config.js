@@ -3,7 +3,7 @@ import { initializeApp} from "https://www.gstatic.com/firebasejs/9.6.11/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
-import { getFirestore, collection, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+import { doc, getFirestore, collection, addDoc, setDoc, getDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,4 +27,4 @@ const database = getDatabase(app);
 const auth = getAuth();
 const db = getFirestore(app);
 
-export {app, analytics, database, auth, initializeApp, db, getAnalytics, getDatabase, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getFirestore, collection, addDoc, setDoc}; 
+export {doc, app, analytics, database, auth, initializeApp, db, getAnalytics, getDatabase, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getFirestore, collection, addDoc, setDoc, getDoc, getDocs}; 

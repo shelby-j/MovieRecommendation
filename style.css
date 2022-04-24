@@ -187,8 +187,8 @@ tr:nth-child(even) {
 .card {
     justify-content: center;
     align-items: center;
-    /* margin: 0 auto; */
-    margin-top: 1rem;
+    margin: 0 auto;
+    margin-top: 2rem;
     width: 200px;
     height: 450px;
     background-color: #011327;
@@ -218,6 +218,10 @@ tr:nth-child(even) {
     margin-top: 0.4rem;
   }
 
+  .card-info {
+    text-align: center;
+    color: #c6c5b9;
+  }
 @media screen and (min-width: 500px) {
     .top-ten-movie-list {
         display: flex;

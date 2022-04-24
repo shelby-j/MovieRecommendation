@@ -33,14 +33,13 @@
         </a>
 
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Home')"><i
+            <button class="tablinks" onclick="fetchMovies()"><i
                     class="fa fa-fw fa-home"></i>Home</button>
-            <button class="tablinks" onclick="openTab(event, 'WatchedMovies')">Watched</button>
-            <button class="tablinks" onclick="openTab(event, 'NeedToWatched')">Must-watch
-                list</button>
-            <button class="tablinks" onclick="openTab(event, 'LikedMovies')">Liked movies</button>
-            <button class="tablinks" onclick="openTab(event, 'DislikedMovies')">Disliked movies</button>
-            <button class="tablinks" onclick="openTab(event, 'Recommended')">Recommendation</button>
+            <button class="tablinks" onclick="import('./js/app.js').then(o=> o.display('watched'))">Watched</button>
+            <button class="tablinks" onclick="import('./js/app.js').then(o=> o.display('mustwatch'))">Must-watch list</button>
+            <button class="tablinks" onclick="import('./js/app.js').then(o=> o.display('liked'))">Liked movies</button>
+            <button class="tablinks" onclick="import('./js/app.js').then(o=> o.display('disliked'))">Disliked movies</button>
+    
             <div class="search-container">
                 <input type="text" placeholder="Search.." id="search">
                 <button type="button" id="search_movie"><i class="fa
@@ -167,10 +166,10 @@
     <script>
         
         const TopTenMovieListCon = document.querySelector(".top-ten-movie-list");
-        const apiKey = "k_cbqhgugk";
+        const apiKey = "k_aedbdr29";
         //constantly change the key to check
-        const fetchMovies = () => {
-        fetch("https://imdb-api.com/en/API/Top250Movies/k_cbqhgugk")
+        function fetchMovies() {
+        fetch("https://imdb-api.com/en/API/Top250Movies/k_aedbdr29")
     .then((response) => {
       return response.json();
     })
@@ -187,8 +186,8 @@
               src=${image}
               alt="image"
             />
-            <div className="card-footer">
-              <div className="card-info">
+            <div class="card-footer">
+              <div class="card-info">
                 <h4>${title}</h4>
                 <p>${year}</p>
               </div>
@@ -198,86 +197,7 @@
         })
         .join("");
       TopTenMovieListCon.innerHTML = topTenMovieList;
-      // console.log(topTenMovieList)
     });
 }
-    fetchMovies();
-    var counter = 1;
-//C:\Program Files (x86)\Google\Chrome\Application>.\chrome.exe --allow-file-access-from-files
-//python -m http.server
-//http://localhost:8000/MovieRecommendation.html
-//get movies info from .xml file -->
-function populateMovieListFromXML(xml, tabName) {
-    var xmlDoc = xml.responseXML;
-    var txt = "<tr><td><b>Title</b></td><td><b>Ratings</b></td><td><b>Year</b></td><td><b>Genre</b></td><td><b>Language</b></td>\
-<td><b>Remove</b></td><td><b>Move</b></td></tr>";
-    path = "/User/MovieRecommendation/" + tabName + "/Movie";
-    // console.log(path);
-    if (xmlDoc.evaluate) {
-        var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
-        var result = nodes.iterateNext();
-        var elem;
-        var genre;
-        var title;
-        var ratings;
-        var year;
-        var lang;
-        while (result) {
-            genre = result.getAttribute('genre');
-            title = result.getElementsByTagName("title")[0].childNodes[0].nodeValue;
-            ratings = result.getElementsByTagName("ratings")[0].childNodes[0].nodeValue;
-            year = result.getElementsByTagName("year")[0].childNodes[0].nodeValue;
-            lang = result.getElementsByTagName("title")[0].getAttribute('lang');
-
-            // console.log("result innerHTML" + result.innerHTML);
-            // console.log('genre=' + genre);
-            // console.log("title=" + title);
-            // console.log("ratings=" + ratings);
-            // console.log("year=" + year);
-            // console.log("lang=" + lang);
-
-            txt += "<tr><td>" + title + "</td><td>" + ratings + "</td><td>" + year +
-                "</td><td>" + genre + "</td><td>" + lang + "</td><td><button onclick='removeEntryfromXML(" + tabName +
-                ")'>Remove</button></td><td><button onclick='moveEntryfromXML(" + tabName +
-                ")'>Move</button></td></tr>";
-
-            result = nodes.iterateNext();
-        }
-        // console.log(txt);
-        //WatchedMoviesTable
-        var completeTable = document.getElementById(tabName + "Table");
-
-        completeTable.innerHTML = txt;
-    }
-}
-
-// open the tab when user click on it 
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace("active", "");
-    }
-    // console.log(document.getElementById(tabName));
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += "active";
-    //-----------------------------------------------------------
-    //action only when a tab (except for home) is clicked
-    if (tabName != "Home") {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                populateMovieListFromXML(this, tabName);
-            }
-        };
-        xhttp.open("GET", "MovieRecommendation.xml", true);
-        xhttp.send();
-    }
-}
-
     </script>
 </html>

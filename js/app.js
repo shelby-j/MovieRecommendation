@@ -1,4 +1,4 @@
-import {setDoc, app, analytics, auth, db, initializeApp, getAnalytics, getDatabase, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getFirestore, collection, addDoc} from "./config.js"
+import {doc, setDoc, app, analytics, auth, db, initializeApp, getAnalytics, getDatabase, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getFirestore, collection, addDoc, getDoc, getDocs} from "./config.js"
 
 // const db = firebase.firestore();
 //search function
@@ -90,10 +90,8 @@ export function test(index) {
 
 export async function add(index,subcollection) {
     let item = test(index);
-    console.log(item);
     const user = auth.currentUser;
     const uid = user.uid;
-    console.log(uid);
     await addDoc(collection(db, "users", uid, subcollection), item);
 }
 
@@ -108,8 +106,112 @@ signout.addEventListener('click', (e)=> {
   });
 })
 
-// function getdata(subcollection) {
 
+export async function display(subcollection) {
+  //get the list of movies (watched, disliked)
+  let list_data=[]
+  const user = auth.currentUser;
+  const uid = user.uid;
+  const querySnapshot = await getDocs(collection(db, "users",uid,subcollection));
+  querySnapshot.forEach((doc) => {
+    list_data.push(doc.data());
+  });
+  
+  //display movie
+  const sub_list = list_data.map((movie, index) => {
+    const { img, link, title, year } = movie;
+    return `<div class="card" id = "${index}">
+      <a href="${movie.link}/" target = "blank">
+        <img
+           src=${img}
+           alt="image"
+         />
+         <div class="card-footer">
+           <div class="card-info" id="card-info${index}">
+             <h5>${title}</h5>
+             <p>${year}</p>
+           </div>
+         </div>
+      </a>
+    </div>`;
+  })
+  TopTenMovieListCon.innerHTML = sub_list; 
+
+}
+
+// var counter = 1;
+// //C:\Program Files (x86)\Google\Chrome\Application>.\chrome.exe --allow-file-access-from-files
+// //python -m http.server
+// //http://localhost:8000/MovieRecommendation.html
+// //get movies info from .xml file -->
+// function populateMovieListFromXML(xml, tabName) {
+//     var xmlDoc = xml.responseXML;
+//     var txt = "<tr><td><b>Title</b></td><td><b>Ratings</b></td><td><b>Year</b></td><td><b>Genre</b></td><td><b>Language</b></td>\
+// <td><b>Remove</b></td><td><b>Move</b></td></tr>";
+//     path = "/User/MovieRecommendation/" + tabName + "/Movie";
+//     // console.log(path);
+//     if (xmlDoc.evaluate) {
+//         var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+//         var result = nodes.iterateNext();
+//         var elem;
+//         var genre;
+//         var title;
+//         var ratings;
+//         var year;
+//         var lang;
+//         while (result) {
+//             genre = result.getAttribute('genre');
+//             title = result.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+//             ratings = result.getElementsByTagName("ratings")[0].childNodes[0].nodeValue;
+//             year = result.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+//             lang = result.getElementsByTagName("title")[0].getAttribute('lang');
+
+//             // console.log("result innerHTML" + result.innerHTML);
+//             // console.log('genre=' + genre);
+//             // console.log("title=" + title);
+//             // console.log("ratings=" + ratings);
+//             // console.log("year=" + year);
+//             // console.log("lang=" + lang);
+
+//             txt += "<tr><td>" + title + "</td><td>" + ratings + "</td><td>" + year +
+//                 "</td><td>" + genre + "</td><td>" + lang + "</td><td><button onclick='removeEntryfromXML(" + tabName +
+//                 ")'>Remove</button></td><td><button onclick='moveEntryfromXML(" + tabName +
+//                 ")'>Move</button></td></tr>";
+
+//             result = nodes.iterateNext();
+//         }
+//         // console.log(txt);
+//         //WatchedMoviesTable
+//         var completeTable = document.getElementById(tabName + "Table");
+
+//         completeTable.innerHTML = txt;
+//     }
 // }
 
-// export function
+// // open the tab when user click on it 
+// function openTab(evt, tabName) {
+//     var i, tabcontent, tablinks;
+//     tabcontent = document.getElementsByClassName("tabcontent");
+//     for (i = 0; i < tabcontent.length; i++) {
+//         tabcontent[i].style.display = "none";
+//     }
+//     tablinks = document.getElementsByClassName("tablinks");
+//     for (i = 0; i < tablinks.length; i++) {
+//         tablinks[i].className = tablinks[i].className.replace("active", "");
+//     }
+//     // console.log(document.getElementById(tabName));
+//     document.getElementById(tabName).style.display = "block";
+//     evt.currentTarget.className += "active";
+//     //-----------------------------------------------------------
+//     //action only when a tab (except for home) is clicked
+//     if (tabName != "Home") {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.onreadystatechange = function() {
+//             if (this.readyState == 4 && this.status == 200) {
+//                 populateMovieListFromXML(this, tabName);
+//             }
+//         };
+//         xhttp.open("GET", "MovieRecommendation.xml", true);
+//         xhttp.send();
+//     }
+// } 
