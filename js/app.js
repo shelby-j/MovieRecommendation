@@ -121,7 +121,7 @@ export async function display(subcollection) {
   const sub_list = list_data.map((movie, index) => {
     const { img, link, title, year } = movie;
     return `<div class="card" id = "${index}">
-      <a href="${movie.link}/" target = "blank">
+      <a href="${movie.link}" target = "blank">
         <img
            src=${img}
            alt="image"
