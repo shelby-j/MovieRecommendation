@@ -15,7 +15,11 @@ signUp.addEventListener('click', (e)=> {
         }
     }
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+    if (password.length < 8) {
+        alert("Password must contain at least 8 characters.")
+    }
+    else {
+        createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in 
         const user = userCredential.user;
@@ -27,7 +31,6 @@ signUp.addEventListener('click', (e)=> {
             genre: checkedGenre,
         })
         window.location.href = "MovieRecommendation.html";
-    // ...
     })
     .catch((error) => {
     const errorCode = error.code;
@@ -35,6 +38,10 @@ signUp.addEventListener('click', (e)=> {
     alert(error);
     // ..
     });
+    }
+    
+    // ...
+    
 })
 
 
